@@ -1,5 +1,5 @@
 {% set name = "trustregion" %}
-{% set version = "1.2" %}
+{% set version = "1.2.1" %}
 
 
 package:
@@ -8,16 +8,17 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/trustregion-{{ version }}.tar.gz
-  sha256: 243574345835f8c59c645c9384da015cba67912b1298cb2aa8ada25f3c3918cd
+  sha256: 93964d09005661c6aad699e8eb4f97590d14a346c70b4037e51d9fc7bfc18ea8
 
 build:
-  number: 3
+  number: 0
   script: {{ PYTHON }} -m pip install . -vv
   skip: true  # [win]
 
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - {{ compiler('fortran') }}
   host:
     - numpy
